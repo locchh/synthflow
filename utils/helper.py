@@ -1,4 +1,5 @@
 import os
+import tiktoken
 from openai import OpenAI
 from typing import List, Dict
 
