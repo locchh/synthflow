@@ -1,5 +1,35 @@
 import os
 from openai import OpenAI
+from typing import List, Dict
+
+def count_tiktoken_length(messages: List[Dict[str, str]], model_name: str = "gpt-3.5-turbo") -> int:
+    """
+    Counts the total number of tokens in a list of messages using tiktoken.
+
+    Args:
+        messages (List[Dict[str, str]]): List of messages, where each message is a dictionary
+                                         with keys like "role" and "content".
+        model_name (str): The name of the model for which the tokenization should be done.
+                          Default is "gpt-3.5-turbo".
+
+    Returns:
+        int: Total number of tokens across all messages.
+    """
+    try:
+        # Load the tokenizer for the specified model
+        encoding = tiktoken.encoding_for_model(model_name)
+        
+        total_tokens = 0
+        
+        for message in messages:
+            for key, value in message.items():
+                # Count tokens for each value in the message dictionary
+                total_tokens += len(encoding.encode(value))
+        
+        return total_tokens
+    except Exception as e:
+        raise RuntimeError(f"Error in calculating token length: {e}")
+        
 
 def set_openai_key(path_to_key: str = "/home/loc/Documents/keys/OPENAI_API_KEY.txt") -> None:
     """
