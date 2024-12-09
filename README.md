@@ -8,4 +8,6 @@
 
 [docling](https://github.com/DS4SD/docling)
 
-[docling_synthetic_data](https://github.com/locchh/llm-playground/blob/main/notebooks/Experiments/docling_synthetic_data.ipynb)
+[docling.io](https://ds4sd.github.io/docling/#ibm-open-source-ai)
+
+[COBOL2VEC](https://arxiv.org/pdf/2201.09448)

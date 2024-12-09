@@ -28,6 +28,7 @@ def extract_pages(input_pdf, output_pdf, start_page, end_page):
         print(f"An error occurred: {e}")
 
 if __name__ == "__main__":
+    
     if len(sys.argv) != 5:
         print("Usage: python extract_pdf_pages.py <input_pdf> <output_pdf> <start_page> <end_page>")
         sys.exit(1)
