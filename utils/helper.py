@@ -48,3 +48,22 @@ def test_openai_api(model: str = "gpt-4") -> None:
         
     except Exception as e:
         print(f"An error occurred: {e}")
+
+
+def create_openai_client() -> OpenAI | None:
+    """
+    Creates an instance of the OpenAI client using the API key from the environment variable.
+
+    Returns:
+        OpenAI | None: The OpenAI client instance if successful, otherwise None.
+    """
+    try:
+        api_key = os.environ.get("OPENAI_API_KEY")
+        if not api_key:
+            raise ValueError("OPENAI_API_KEY is not set in the environment variables.")
+        
+        client = OpenAI(api_key=api_key)
+        return client
+    except Exception as e:
+        print(f"Failed to create OpenAI client: {e}")
+        return None
