@@ -8,7 +8,7 @@ A tool for generating synthetic data.
 
 |No|Type|none|txt|pdf|Comment|
 |---|---|---|---|---|---|
-|01|Simple Q&A|✅|❌|❌||
+|01|Simple Q&A|❌|✅|❌||
 
 - For Learning
 
