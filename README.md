@@ -1,5 +1,7 @@
 # SynthFlow
 
+A tool for generating synthetic data.
+
 # references
 
 [openai](https://platform.openai.com/docs/overview)
