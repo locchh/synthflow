@@ -1,7 +1,9 @@
 import os
 import tiktoken
 from openai import OpenAI
+from openai import AzureOpenAI
 from typing import List, Dict
+
 
 def count_tiktoken_length(messages: List[Dict[str, str]], model_name: str = "gpt-3.5-turbo") -> int:
     """
@@ -98,3 +100,107 @@ def create_openai_client() -> OpenAI | None:
     except Exception as e:
         print(f"Failed to create OpenAI client: {e}")
         return None
+
+
+def create_azure_openai_client(config_path: str = "path/to/your/config.yaml"):
+    """
+    Creates and returns an Azure OpenAI client using configuration from a YAML file.
+
+    Args:
+        config_path (str): Path to the YAML configuration file (default: path/to/your/config.yaml).
+    
+    Returns:
+        AzureOpenAI: An instance of the AzureOpenAI client.
+
+    Raises:
+        FileNotFoundError: If the YAML config file is not found.
+        KeyError: If a required key is missing in the YAML file.
+    """
+    
+    # Load the configuration from the YAML file
+    try:
+        with open(config_path, 'r') as file:
+            config = yaml.safe_load(file)
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Configuration file not found at {config_path}")
+    except yaml.YAMLError as e:
+        raise ValueError(f"Error parsing the YAML file: {e}")
+
+    # Extract the necessary configuration values with fallback to default values if keys are missing
+    try:
+        azure_config = config.get('gpt-4o-mini', {})
+        azure_endpoint = azure_config.get('API_BASE')
+        api_key = azure_config.get('API_KEY')
+        api_version = azure_config.get('API_VERSION')
+
+        if not all([azure_endpoint, api_key, api_version]):
+            raise KeyError("Missing required configuration keys: API_BASE, API_KEY, or API_VERSION")
+    except KeyError as e:
+        raise KeyError(f"Missing key in configuration: {e}")
+
+    # Initialize the AzureOpenAI client
+    client = AzureOpenAI(
+        azure_endpoint=azure_endpoint,
+        api_key=api_key,
+        api_version=api_version,
+        http_client=httpx.Client(verify=False)  # Disable SSL verification, change if needed
+    )
+
+    return client
+
+
+def test_azure_openai_api(config_path: str = "path/to/your/config.yaml"):
+    """
+    Tests the Azure OpenAI API by sending a simple chat request.
+
+    Args:
+        config_path (str): Path to the YAML configuration file (default: path/to/your/config.yaml).
+    
+    Returns:
+        None
+    """
+    
+    # Load the configuration from the YAML file
+    try:
+        with open(config_path, 'r') as file:
+            config = yaml.safe_load(file)
+    except FileNotFoundError:
+        raise FileNotFoundError(f"Configuration file not found at {config_path}")
+    except yaml.YAMLError as e:
+        raise ValueError(f"Error parsing the YAML file: {e}")
+
+    # Extract required values from the config
+    try:
+        azure_config = config.get('gpt-4o-mini', {})
+        azure_endpoint = azure_config.get('API_BASE')
+        api_key = azure_config.get('API_KEY')
+        api_version = azure_config.get('API_VERSION')
+
+        if not all([azure_endpoint, api_key, api_version]):
+            raise KeyError("Missing required configuration keys: API_BASE, API_KEY, or API_VERSION")
+    except KeyError as e:
+        raise KeyError(f"Missing required key in configuration: {e}")
+
+    # Initialize the Azure OpenAI client
+    client = AzureOpenAI(
+        azure_endpoint=azure_endpoint,
+        api_key=api_key,
+        api_version=api_version,
+        http_client=httpx.Client(verify=False)
+    )
+
+    # Define the test messages
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant"},
+        {"role": "user", "content": "Hello assistant, I need your help"}
+    ]
+
+    # Send the chat completion request
+    try:
+        response = client.chat.completions.create(
+            messages=messages,
+            model='gpt-4o-mini'
+        )
+        print(response.choices[0].message.content)
+    except Exception as e:
+        print(f"Error during API request: {e}")
