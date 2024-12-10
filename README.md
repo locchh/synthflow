@@ -1,4 +1,4 @@
-# 🌊SynthFlow
+# SynthFlow🌊
 
 A tool for generating synthetic data.
 
