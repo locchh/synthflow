@@ -50,10 +50,6 @@ A tool for generating synthetic data.
 | 05 | Support multi-threaded running            | ❌     |
 | 06 | Generate a synthetic dataset for training the model | ❌ |
 
-
-- Support multi-theard running
-- 
-
 # references
 
 [openai](https://platform.openai.com/docs/overview)
