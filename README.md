@@ -40,6 +40,8 @@ A tool for generating synthetic data.
 |09|[Code Documentation](docs/coding_instruction_data.md#9-code-documentation)|❌|❌|❌||
 |10|[SQL Query Assistance](docs/coding_instruction_data.md#10-sql-query-assistance)|❌|❌|❌||
 
+- Other
+
 # TODOs
 | No | Task                                         | Status |
 |----|----------------------------------------------|--------|
