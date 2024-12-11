@@ -2,17 +2,17 @@
 
 A tool for generating synthetic data.
 
-# types
+# Pipelines
 
 - Basic
 
-|No|Type|none|txt|pdf|Comment|
+|No|Pipeline|none|txt|pdf|Comment|
 |---|---|---|---|---|---|
 |01|Simple Q&A|❌|[✅](pipelines/Basic.py)|❌||
 
 - For Learning
 
-|No|Type|none|txt|pdf|Comment|
+|No|Pipeline|none|txt|pdf|Comment|
 |---|---|---|---|---|---|
 |01|[Definitions and Terminology](docs/mainframe_learning_instruction_data.md#1-definitions-and-terminology)|❌|❌|❌||
 |02|[Troubleshooting](docs/mainframe_learning_instruction_data.md#2-troubleshooting)|❌|❌|❌||
@@ -27,7 +27,7 @@ A tool for generating synthetic data.
 
 - For Coding
 
-|No|Type|none|txt|pdf|Comment|
+|No|Pipeline|none|txt|pdf|Comment|
 |---|---|---|---|---|---|
 |01|[Code Explanation](docs/coding_instruction_data.md#1-code-explanation)|❌|❌|❌||
 |02|[Code Debugging](docs/coding_instruction_data.md#2-code-debugging)|❌|❌|❌||
@@ -41,16 +41,25 @@ A tool for generating synthetic data.
 |10|[SQL Query Assistance](docs/coding_instruction_data.md#10-sql-query-assistance)|❌|❌|❌||
 
 # TODOs
-| No | Task                                       | Status |
-|----|-------------------------------------------|--------|
-| 01 | Create example data                       | ❌     |
-| 02 | Create a simple pipeline                  | ✅     |
-| 03 | Create additional pipelines               | ❌     |
-| 04 | Enhance feature validation and deduplication | ❌  |
-| 05 | Support multi-threaded running            | ❌     |
-| 06 | Generate a synthetic dataset for training the model | ❌ |
+| No | Task                                         | Status |
+|----|----------------------------------------------|--------|
+| 01 | Create example data                          | ❌     |
+| 02 | Create a simple pipeline                     | ✅     |
+| 03 | Create additional pipelines                  | ❌     |
+| 04 | Improve data quality                         | ❌     |
+| 05 | Enhance feature validation and deduplication | ❌     |
+| 06 | Support multi-threaded running               | ❌     |
+| 07 | Generate a synthetic dataset for training the model | ❌ |
 
-# references
+# References
+
+[WizardLM: Empowering Large Language Models to Follow Complex Instructions](https://arxiv.org/abs/2304.12244)
+
+[h2o-wizardlm](https://github.com/h2oai/h2o-wizardlm?tab=readme-ov-file)
+
+[Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence](https://arxiv.org/abs/2410.11163)
+
+[llm-swarm](https://github.com/huggingface/llm-swarm)
 
 [openai](https://platform.openai.com/docs/overview)
 
