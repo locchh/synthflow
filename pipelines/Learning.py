@@ -1,7 +1,5 @@
 import random
 
-import random
-
 class BasePipeline:
 
     def __init__(self, client,model="gpt-4o", temp_min=0.4, temp_max=0.7, top_p=0.8, token_length=512):
