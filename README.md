@@ -8,7 +8,7 @@ A tool for generating synthetic data.
 
 |No|Pipeline|none|txt|pdf|Comment|
 |---|---|---|---|---|---|
-|01|Simple Q&A|❌|[✅](pipelines/Basic.py)|❌||
+|01|Simple Q&A|❌|[✅](pipelines/Basic.py#L3)|❌||
 
 - For Learning
 
