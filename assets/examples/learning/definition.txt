@@ -1,0 +1,7 @@
+Mainframe systems are powerful, centralized computing platforms designed to 
+handle vast amounts of data and support thousands of users simultaneously.
+They are known for their reliability, scalability, and high throughput,
+making them ideal for critical applications that require secure, uninterrupted processing.
+Mainframes are commonly employed in industries such as banking, healthcare,
+and government to perform tasks like transaction processing, batch jobs, and managing large databases.
+Their architecture is optimized for heavy workloads, ensuring efficiency in data management and enterprise-level operations.
