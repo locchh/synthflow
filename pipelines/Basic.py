@@ -1,8 +1,14 @@
+import random
+
 class SimpleQAPipeline:
 
-    def __init__(self, client, model="gpt-4o"):
+    def __init__(self, client,model="gpt-4o", temp_min=0.1, temp_max=0.7, top_p=0.8, token_length=512):
         self.client = client
         self.model = model
+        self.temp_min = temp_min
+        self.temp_max = temp_max
+        self.top_p = top_p
+        self.token_length = token_length
 
     def __call__(self, content: str):  # Added self here
         # Generate Question
@@ -18,10 +24,14 @@ class SimpleQAPipeline:
             )}
         ]
 
-        response = self.client.chat.completions.create(  # Use self.client to access the client
+        response = self.client.chat.completions.create(
             messages=messages,
             model=self.model,
+            temperature=random.uniform(self.temp_min, self.temp_max),
+            max_tokens=self.token_length,
+            top_p=self.top_p
         )
+
         question = response.choices[0].message.content
 
         # Generate Answer
@@ -34,8 +44,11 @@ class SimpleQAPipeline:
         response = self.client.chat.completions.create(
             messages=messages,
             model=self.model,
+            temperature=random.uniform(self.temp_min, self.temp_max),
+            max_tokens=self.token_length,
+            top_p=self.top_p
         )
-
+        
         answer = response.choices[0].message.content
 
         # Generate Instruction data
