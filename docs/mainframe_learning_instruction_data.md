@@ -1,6 +1,6 @@
 ### 1. **Definitions and Terminology**
 
-#### Type:
+#### Type of Document:
 
 Technical briefs, product's descriptions, product's overviews, knowledge base articles, user guides, training manuals, white papers. techinal blogs.
 
@@ -17,7 +17,7 @@ A mainframe system is a high-performance computer used for large-scale data proc
 
 ### 2. **Troubleshooting**
 
-#### Type:
+#### Type of Document:
 
 Troubleshooting guide, Technical manual, or system administration document.
 
@@ -39,7 +39,7 @@ To troubleshoot high CPU usage on an IBM z/OS mainframe system:
 
 ### 3. **Command References**
 
-#### Type:
+#### Type of Document:
 
 Command reference guide, System administration manual, or Technical documentation.
 
@@ -63,7 +63,7 @@ This lists all active jobs currently running on the z/OS system.
 
 ### 4. **System Operations**
 
-#### Type:
+#### Type of Document:
 
 Command reference guide, system administration manual, or operating system user guide.
 
@@ -84,7 +84,7 @@ Write the steps to perform an IPL (Initial Program Load) on an IBM mainframe.
 
 ### 5. **Programming on Mainframes**
 
-#### Type:
+#### Type of Document:
 
 Programming tutorial, code example repository, or technical manual.
 
@@ -140,7 +140,7 @@ READ-FILE.
 
 ### 6. **System Configuration**
 
-#### Type:
+#### Type of Document:
 
 System configuration guide, mainframe administration manual, or technical procedures document.
 
@@ -161,7 +161,7 @@ How do you configure a new LPAR (Logical Partition) in a mainframe environment?
 
 ### 7. **Migration and Modernization**
 
-#### Type:
+#### Type of Document:
 
 Migration guide, cloud adoption strategy document, or IT transformation manual.
 
@@ -183,7 +183,7 @@ Outline the steps to migrate an application from a mainframe to a cloud environm
 
 ### 8. **Performance Optimization**
 
-#### Type:
+#### Type of Document:
 
 Performance tuning guide, system optimization manual, or batch job management document.
 
@@ -204,7 +204,7 @@ How can you improve batch job performance on a mainframe system?
 
 ### 9. **Integration**
 
-#### Type:
+#### Type of Document:
 
 Integration guide, API development manual, or mainframe modernization document. 
 
@@ -225,7 +225,7 @@ How do you integrate a mainframe with modern REST APIs for data exchange?
 
 ### 10. **Error Analysis**
 
-#### Type:
+#### Type of Document:
 
 Mainframe error troubleshooting guide, job error handling manual, or system administration reference.
 
@@ -240,7 +240,3 @@ The error "IEF450I JOB ABEND" indicates that a job has terminated abnormally. To
 1. Check the job log for details about the abend code (e.g., S222, S806).
 2. Address the root cause, such as missing libraries (S806) or manual cancellation (S222).
 3. Rerun the job after fixing the issue.
-
----
-
-These examples cover various aspects of mainframe systems and can help train LLMs to assist in operations, programming, and troubleshooting in mainframe environments.
