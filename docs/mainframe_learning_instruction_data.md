@@ -1,22 +1,32 @@
-When reading a document about mainframe systems, you can generate instruction data for training LLMs across multiple categories. These include definitions, troubleshooting, system operations, migration, modernization, configuration, and programming. Below are some examples:
-
----
-
 ### 1. **Definitions and Terminology**
+
+#### Type:
+
+Technical briefs, product's descriptions, product's overviews, knowledge base articles, user guides, training manuals, white papers. techinal blogs.
+
 #### Input:
+
 ```
 Explain what a mainframe system is and its primary use cases.
 ```
+
 #### Output:
 A mainframe system is a high-performance computer used for large-scale data processing, transaction handling, and critical applications. It is commonly used in industries like banking, healthcare, and government for tasks such as batch processing, database management, and enterprise resource planning.
 
 ---
 
 ### 2. **Troubleshooting**
+
+#### Type:
+
+Troubleshooting guide, Technical manual, or system administration document.
+
 #### Input:
+
 ```
 How would you troubleshoot a high CPU usage issue on an IBM z/OS mainframe system?
 ```
+
 #### Output:
 To troubleshoot high CPU usage on an IBM z/OS mainframe system:
 1. Use the RMF (Resource Measurement Facility) to monitor CPU utilization.
@@ -28,24 +38,41 @@ To troubleshoot high CPU usage on an IBM z/OS mainframe system:
 ---
 
 ### 3. **Command References**
+
+#### Type:
+
+Command reference guide, System administration manual, or Technical documentation.
+
 #### Input:
+
 ```
 Provide the command to list all active jobs on a z/OS system.
 ```
+
 #### Output:
+
 Use the command:
+
 ```
 DISPLAY ACTIVE
 ```
+
 This lists all active jobs currently running on the z/OS system.
 
 ---
 
 ### 4. **System Operations**
+
+#### Type:
+
+Command reference guide, system administration manual, or operating system user guide.
+
 #### Input:
+
 ```
 Write the steps to perform an IPL (Initial Program Load) on an IBM mainframe.
 ```
+
 #### Output:
 1. Ensure all critical jobs are stopped and the system is backed up.
 2. Enter the hardware management console (HMC) and select the system to IPL.
@@ -56,11 +83,19 @@ Write the steps to perform an IPL (Initial Program Load) on an IBM mainframe.
 ---
 
 ### 5. **Programming on Mainframes**
+
+#### Type:
+
+Programming tutorial, code example repository, or technical manual.
+
 #### Input:
+
 ```
 Write a COBOL program to read employee data from a VSAM file and display it.
 ```
+
 #### Output:
+
 ```cobol
 IDENTIFICATION DIVISION.
 PROGRAM-ID. DISPLAY-EMPLOYEES.
@@ -104,10 +139,17 @@ READ-FILE.
 ---
 
 ### 6. **System Configuration**
+
+#### Type:
+
+System configuration guide, mainframe administration manual, or technical procedures document.
+
 #### Input:
+
 ```
 How do you configure a new LPAR (Logical Partition) in a mainframe environment?
 ```
+
 #### Output:
 1. Access the hardware management console (HMC).
 2. Define the new LPAR and assign resources (CPU, memory, I/O channels).
@@ -118,10 +160,17 @@ How do you configure a new LPAR (Logical Partition) in a mainframe environment?
 ---
 
 ### 7. **Migration and Modernization**
+
+#### Type:
+
+Migration guide, cloud adoption strategy document, or IT transformation manual.
+
 #### Input:
+
 ```
 Outline the steps to migrate an application from a mainframe to a cloud environment.
 ```
+
 #### Output:
 1. Assess the application architecture and dependencies.
 2. Identify mainframe-specific components (e.g., COBOL programs, JCL scripts).
@@ -133,10 +182,17 @@ Outline the steps to migrate an application from a mainframe to a cloud environm
 ---
 
 ### 8. **Performance Optimization**
+
+#### Type:
+
+Performance tuning guide, system optimization manual, or batch job management document.
+
 #### Input:
+
 ```
 How can you improve batch job performance on a mainframe system?
 ```
+
 #### Output:
 1. Optimize job scheduling to avoid resource contention.
 2. Use high-performance utilities like DFSORT for sorting tasks.
@@ -147,10 +203,17 @@ How can you improve batch job performance on a mainframe system?
 ---
 
 ### 9. **Integration**
+
+#### Type:
+
+Integration guide, API development manual, or mainframe modernization document. 
+
 #### Input:
+
 ```
 How do you integrate a mainframe with modern REST APIs for data exchange? 
 ```
+
 #### Output:
 1. Use IBM z/OS Connect to expose mainframe data as RESTful APIs.
 2. Map COBOL copybooks or database schemas to API schemas.
@@ -161,10 +224,17 @@ How do you integrate a mainframe with modern REST APIs for data exchange?
 ---
 
 ### 10. **Error Analysis**
+
+#### Type:
+
+Mainframe error troubleshooting guide, job error handling manual, or system administration reference.
+
 #### Input:
+
 ```
 What does the error message "IEF450I JOB ABEND" mean, and how do you resolve it?
 ```
+
 #### Output:
 The error "IEF450I JOB ABEND" indicates that a job has terminated abnormally. To resolve:
 1. Check the job log for details about the abend code (e.g., S222, S806).
