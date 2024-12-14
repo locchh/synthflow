@@ -8,7 +8,7 @@ A tool for generating synthetic data.
 
 |No|Pipeline|none|txt|pdf|Comment|
 |---|---|---|---|---|---|
-|01|Simple Q&A|❌|[✅](pipelines/Basic.py#L4)|❌||
+|01|Simple Q&A|❌|[✅](pipelines/Basic.py#L4)|❌|*Based on what type of document?*|
 
 - For Learning
 
@@ -29,7 +29,7 @@ A tool for generating synthetic data.
 
 |No|Pipeline|none|txt|pdf|Comment|
 |---|---|---|---|---|---|
-|01|[Code Explanation](docs/coding_instruction_data.md#1-code-explanation)|❌|❌|❌|*Based on what type of document?*|
+|01|[Code Explanation](docs/coding_instruction_data.md#1-code-explanation)|❌|❌|❌||
 |02|[Code Debugging](docs/coding_instruction_data.md#2-code-debugging)|❌|❌|❌||
 |03|[Code Generation](docs/coding_instruction_data.md#3-code-generation)|❌|❌|❌||
 |04|[Code Completion](docs/coding_instruction_data.md#4-code-completion)|❌|❌|❌||
