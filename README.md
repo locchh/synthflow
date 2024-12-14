@@ -55,11 +55,7 @@ A tool for generating synthetic data.
 
 # References
 
-[WizardLM: Empowering Large Language Models to Follow Complex Instructions](https://arxiv.org/abs/2304.12244)
-
 [h2o-wizardlm](https://github.com/h2oai/h2o-wizardlm?tab=readme-ov-file)
-
-[Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence](https://arxiv.org/abs/2410.11163)
 
 [llm-swarm](https://github.com/huggingface/llm-swarm)
 
@@ -70,3 +66,7 @@ A tool for generating synthetic data.
 [docling](https://github.com/DS4SD/docling)
 
 [docling.io](https://ds4sd.github.io/docling/#ibm-open-source-ai)
+
+[WizardLM: Empowering Large Language Models to Follow Complex Instructions](https://arxiv.org/abs/2304.12244)
+
+[Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence](https://arxiv.org/abs/2410.11163)
