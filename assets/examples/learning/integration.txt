@@ -1,0 +1,9 @@
+Integrating legacy mainframe systems with modern applications often involves exposing the mainframe data 
+to external systems via RESTful APIs. IBM z/OS Connect is a key tool for this, 
+as it enables mainframe data and services to be accessed through APIs. 
+The integration process includes mapping traditional data structures, such as COBOL copybooks or database schemas, 
+to API schemas. Securing the APIs is essential, often implemented through standards 
+like TLS and OAuth 2.0 to protect sensitive data during exchange. Testing the API endpoints 
+can be done using popular tools like Postman or curl, ensuring that the APIs work as expected. 
+Once the integration is in place, continuous monitoring of the API usage through analytics tools is critical 
+for tracking performance and ensuring efficient data exchange.
