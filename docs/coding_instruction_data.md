@@ -208,7 +208,7 @@ def calculate_area(radius):
 ```
 
 #### Output:
-"""
+```
 Calculates the area of a circle given its radius.
 
 Args:
@@ -216,7 +216,7 @@ Args:
 
 Returns:
     float: The area of the circle.
-"""
+```
 
 ---
 
