@@ -87,7 +87,7 @@ class ErrorAnalysisPipeline(BasePipeline):
                 {"role": "system", "content": "You are a programming expert."},
                 {"role": "user", "content": "Please answer the following question."},
                 {"role": "user", "content": f"{question}"},
-                {"role": "user", "content": f"{answer}"},
+                {"role": "assistant", "content": f"{answer}"},
             ]
 
             return instruct_data
@@ -146,7 +146,7 @@ class IntegrationPipeline(BasePipeline):
                 {"role": "system", "content": "You are a programming expert."},
                 {"role": "user", "content": "Please answer the following question."},
                 {"role": "user", "content": f"{question}"},
-                {"role": "user", "content": f"{answer}"},
+                {"role": "assistant", "content": f"{answer}"},
             ]
 
             return instruct_data
@@ -205,7 +205,7 @@ class PerformanceOptimizationPipeline(BasePipeline):
                 {"role": "system", "content": "You are a programming expert."},
                 {"role": "user", "content": "Please answer the following question."},
                 {"role": "user", "content": f"{question}"},
-                {"role": "user", "content": f"{answer}"},
+                {"role": "assistant", "content": f"{answer}"},
             ]
 
             return instruct_data
@@ -264,7 +264,7 @@ class MigrationPipeline(BasePipeline):
                 {"role": "system", "content": "You are a programming expert."},
                 {"role": "user", "content": "Please answer the following question."},
                 {"role": "user", "content": f"{question}"},
-                {"role": "user", "content": f"{answer}"},
+                {"role": "assistant", "content": f"{answer}"},
             ]
 
             return instruct_data
@@ -324,7 +324,7 @@ class SystemConfigurationPipeline(BasePipeline):
                 {"role": "system", "content": "You are a programming expert."},
                 {"role": "user", "content": "Please answer the following question."},
                 {"role": "user", "content": f"{question}"},
-                {"role": "user", "content": f"{answer}"},
+                {"role": "assistant", "content": f"{answer}"},
             ]
 
             return instruct_data
@@ -383,7 +383,7 @@ class ProgrammingPipeline(BasePipeline):
                 {"role": "system", "content": "You are a programming expert."},
                 {"role": "user", "content": "Please answer the following question."},
                 {"role": "user", "content": f"{question}"},
-                {"role": "user", "content": f"{answer}"},
+                {"role": "assistant", "content": f"{answer}"},
             ]
 
             return instruct_data
@@ -442,7 +442,7 @@ class SystemOperationPipeline(BasePipeline):
                 {"role": "system", "content": "You are a programming expert."},
                 {"role": "user", "content": "Please answer the following question."},
                 {"role": "user", "content": f"{question}"},
-                {"role": "user", "content": f"{answer}"},
+                {"role": "assistant", "content": f"{answer}"},
             ]
 
             return instruct_data
@@ -501,7 +501,7 @@ class CommandReferencePipeline(BasePipeline):
                 {"role": "system", "content": "You are a programming expert."},
                 {"role": "user", "content": "Please answer the following question."},
                 {"role": "user", "content": f"{question}"},
-                {"role": "user", "content": f"{answer}"},
+                {"role": "assistant", "content": f"{answer}"},
             ]
 
             return instruct_data
@@ -560,7 +560,7 @@ class TroubleshootingPipeline(BasePipeline):
                 {"role": "system", "content": "You are a programming expert."},
                 {"role": "user", "content": "Please answer the following question."},
                 {"role": "user", "content": f"{question}"},
-                {"role": "user", "content": f"{answer}"},
+                {"role": "assistant", "content": f"{answer}"},
             ]
 
             return instruct_data
@@ -630,7 +630,7 @@ class DefinitionPipeline(BasePipeline):
                 {"role": "system", "content": "You are a programming expert."},
                 {"role": "user", "content": "Please answer the following question."},
                 {"role": "user", "content": f"{question}"},
-                {"role": "user", "content": f"{answer}"},
+                {"role": "assistant", "content": f"{answer}"},
             ]
 
             return instruct_data

@@ -99,7 +99,7 @@ class SimpleQAPipeline:
                 {"role": "system", "content": "You are a programming expert."},
                 {"role": "user", "content": "Please answer the following question."},
                 {"role": "user", "content": f"{question}"},
-                {"role": "user", "content": f"{answer}"},
+                {"role": "assistant", "content": f"{answer}"},
             ]
 
             return instruct_data
