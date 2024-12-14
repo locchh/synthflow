@@ -37,6 +37,162 @@ class BasePipeline:
 #             raise RuntimeError(f"An error occurred while processing the content: {e}")
 
 
+class CodeOptimizationPipeline(BasePipeline):
+
+    def __call__(self, language: str) -> Optional[List[Dict[str, str]]]:
+
+        try:
+            # Common system message for all requests
+            system_message = {"role": "system", "content": "You are an expert in multiple programming languages."}
+            
+            # Generate a clear and concise coding task request
+            task_request_message = {
+                "role": "user", 
+                "content": (
+                    f"Generate a concise coding task in {language} that is formatted as a programming exercise. "
+                    "The task should be clear, well-structured, and easily understandable. Keep the description short and to the point."
+                    " Please respond with the task only, no extra explanations."
+                )
+            }
+            
+            response = self.client.chat.completions.create(
+                messages=[system_message, task_request_message],
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+            task_request = response.choices[0].message.content
+ 
+            # Generate code based on the task request
+            code_request_message = {
+                "role": "user",
+                "content": f"{task_request}\nPlease respond with the code only, without any additional explanations or comments."
+            }
+
+            response = self.client.chat.completions.create(
+                messages=[system_message, code_request_message],
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+            code_ = response.choices[0].message.content
+
+            # Generate optimize version of code
+            optimization_request_message = {
+                "role": "user", 
+                "content": (
+                    f"Here is my {language} code:\n{code_}\n"
+                    "Please optimize the following code for better performance, readability, and maintainability, without changing its original functionality."
+                    "Focus on reducing redundancy, improving efficiency, and ensuring clear, concise code."
+                    "Respond with the completed code only, without any extra commentary."
+                )
+            }
+
+            response = self.client.chat.completions.create(
+                messages=[system_message, optimization_request_message],
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+            code = response.choices[0].message.content
+
+            # Generate instruction data
+            instruct_data = [
+                {"role": "system", "content": "You are a programming expert."},
+                {"role": "user", "content": (
+                    f"Here is my {language} code:\n{code_}\n"
+                    "Please optimize the following code for better performance, readability, and maintainability, without changing its original functionality."
+                    "Focus on reducing redundancy, improving efficiency, and ensuring clear, concise code."
+                    "Respond with the completed code only, without any extra commentary."
+                    )
+                },
+                {"role": "assistant", "content": code}
+            ]
+
+            return instruct_data
+
+        except Exception as e:
+            raise RuntimeError(f"An error occurred while processing the content: {e}")
+
+
+class CodeTranslationPipeline(BasePipeline):
+
+    def __call__(self, from_language: str, to_language: str) -> Optional[List[Dict[str, str]]]:
+
+        try:
+            # Common system message for all requests
+            system_message = {"role": "system", "content": "You are an expert in multiple programming languages."}
+            
+            # Generate a clear and concise coding task request
+            task_request_message = {
+                "role": "user", 
+                "content": (
+                    f"Generate a concise coding task in {from_language} that is formatted as a programming exercise. "
+                    "The task should be clear, well-structured, and easily understandable. Keep the description short and to the point."
+                    " Please respond with the task only, no extra explanations."
+                )
+            }
+            
+            response = self.client.chat.completions.create(
+                messages=[system_message, task_request_message],
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+            task_request = response.choices[0].message.content
+
+            # Generate code based on the task request
+            code_request_message = {
+                "role": "user",
+                "content": f"{task_request}\nPlease respond with the code only, without any additional explanations or comments."
+            }
+
+            response = self.client.chat.completions.create(
+                messages=[system_message, code_request_message],
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+            code_ = response.choices[0].message.content
+
+            # Generate translated code
+            translation_request_message = {
+                "role": "user", 
+                "content": (
+                    f"Here is my {from_language} code:\n{code_}\n"
+                    f"Please translate the following code to {to_language}. "
+                    "Ensure that the functionality of the code does not change during the translation and the logic of the program remains exactly the same."
+                    " Respond with the completed code only, without any extra commentary."
+                )
+            }
+
+            response = self.client.chat.completions.create(
+                messages=[system_message, translation_request_message],
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+            code = response.choices[0].message.content
+
+            # Generate instruction data
+            instruct_data = [
+                {"role": "system", "content": "You are a programming expert."},
+                {"role": "user", "content": f"Convert this {from_language} code to {to_language}:"},
+                {"role": "user", "content": code_},
+                {"role": "assistant", "content": code}
+            ]
+
+            return instruct_data
+
+        except Exception as e:
+            raise RuntimeError(f"An error occurred while processing the content: {e}")
+
 
 class CodeCompletionPipeline(BasePipeline):
 
