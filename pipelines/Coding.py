@@ -37,12 +37,87 @@ class BasePipeline:
 #             raise RuntimeError(f"An error occurred while processing the content: {e}")
 
 
+
 class CodeCompletionPipeline(BasePipeline):
 
-    def __call__(self, content: str) -> Optional[List[Dict[str, str]]]:
-
+    def __call__(self, language: str) -> Optional[List[Dict[str, str]]]:
         try:
-            pass
+            # Step 1: Generate a clear and concise coding task request
+            messages = [
+                {"role": "system", "content": "You are an expert in multiple programming languages."},
+                {"role": "user", "content": (
+                    f"Generate a concise coding task in {language} that is formatted as a programming exercise. "
+                    "The task should be clear, well-structured, and easily understandable."
+                    " Keep the description short and to the point."
+                )},
+                {"role": "user", "content": "Please respond with the task only, no extra explanations."}
+            ]
+            
+            response = self.client.chat.completions.create(
+                messages=messages,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+            task_request = response.choices[0].message.content
+
+            # Step 2: Generate an incomplete code version
+            incomplete_code_prompt = [
+                {"role": "system", "content": "You are an expert in various programming languages."},
+                {"role": "user", "content": "Please generate an incomplete version of the following request."},
+                {"role": "user", "content": task_request},
+                {"role": "user", "content": (
+                    "The code should contain the basic structure, but key parts like logic or functionality should be missing."
+                    " Leave placeholders for these missing parts so I can complete them."
+                    " Please provide only the code without any additional comments or explanations."
+                )}
+            ]
+            
+            response = self.client.chat.completions.create(
+                messages=incomplete_code_prompt,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+            incomplete_code = response.choices[0].message.content
+
+            # Step 3: Complete the code based on the incomplete version
+            complete_code_prompt = [
+                {"role": "system", "content": "You are an expert in various programming languages."},
+                {"role": "user", "content": "Here is my incomplete code:"},
+                {"role": "user", "content": incomplete_code},
+                {"role": "user", "content": "Based on the following request:"},
+                {"role": "user", "content": task_request},
+                {"role": "user", "content": (
+                    "Please complete the code by filling in the missing logic and functionality."
+                    " Ensure the solution aligns with the task description provided above."
+                    " Respond with the completed code only, without any extra commentary."
+                )}
+            ]
+            
+            response = self.client.chat.completions.create(
+                messages=complete_code_prompt,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+            complete_code = response.choices[0].message.content
+
+            # Step 4: Return instruction data
+            instruct_data = [
+                {"role": "system", "content": "You are a programming expert."},
+                {"role": "user", "content": "Here is the task you need to complete:"},
+                {"role": "user", "content": task_request},
+                {"role": "user", "content": "Below is the incomplete code:"},
+                {"role": "user", "content": incomplete_code},
+                {"role": "assistant", "content": complete_code}
+            ]
+
+            return instruct_data
+
         except Exception as e:
             raise RuntimeError(f"An error occurred while processing the content: {e}")
 
