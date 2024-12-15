@@ -29,29 +29,26 @@ A tool for generating synthetic data.
 
 |No|Pipeline|none|txt|pdf|Comment|
 |---|---|---|---|---|---|
-|01|[Code Explanation](docs/coding_instruction_data.md#1-code-explanation)|❌|❌|❌||
-|02|[Code Debugging](docs/coding_instruction_data.md#2-code-debugging)|❌|❌|❌||
-|03|[Code Generation](docs/coding_instruction_data.md#3-code-generation)|❌|❌|❌||
-|04|[Code Completion](docs/coding_instruction_data.md#4-code-completion)|❌|❌|❌||
-|05|[Code Translation](docs/coding_instruction_data.md#5-code-translation)|❌|❌|❌||
-|06|[Optimization Suggestions](docs/coding_instruction_data.md#6-optimization-suggestions)|❌|❌|❌||
-|07|[Code Review](docs/coding_instruction_data.md#7-code-review)|❌|❌|❌||
-|08|[Error Explanation](docs/coding_instruction_data.md#8-error-explanation)|❌|❌|❌||
-|09|[Code Documentation](docs/coding_instruction_data.md#9-code-documentation)|❌|❌|❌||
-|10|[SQL Query Assistance](docs/coding_instruction_data.md#10-sql-query-assistance)|❌|❌|❌||
+|01|[Code Explanation](docs/coding_instruction_data.md#1-code-explanation)|[✅](pipelines/Coding.py#L685)|❌|❌||
+|02|[Code Debugging](docs/coding_instruction_data.md#2-code-debugging)|[✅](pipelines/Coding.py#L626)|❌|❌||
+|03|[Code Generation](docs/coding_instruction_data.md#3-code-generation)|[✅](pipelines/Coding.py#L570)|❌|❌||
+|04|[Code Completion](docs/coding_instruction_data.md#4-code-completion)|[✅](pipelines/Coding.py#L486)|❌|❌||
+|05|[Code Translation](docs/coding_instruction_data.md#5-code-translation)|[✅](pipelines/Coding.py#L410)|❌|❌||
+|06|[Optimization Suggestions](docs/coding_instruction_data.md#6-optimization-suggestions)|[✅](pipelines/Coding.py#L329)|❌|❌||
+|07|[Code Review](docs/coding_instruction_data.md#7-code-review)|[✅](pipelines/Coding.py#L243)|❌|❌||
+|08|[Error Explanation](docs/coding_instruction_data.md#8-error-explanation)|[✅](pipelines/Coding.py#L181)|❌|❌||
+|09|[Code Documentation](docs/coding_instruction_data.md#9-code-documentation)|[✅](pipelines/Coding.py#L97)|❌|❌||
+|10|[SQL Query Assistance](docs/coding_instruction_data.md#10-sql-query-assistance)|[✅](pipelines/Coding.py#L40)|❌|❌||
 
 - Other
 
 # TODOs
 | No | Task                                         | Status |
 |----|----------------------------------------------|--------|
-| 01 | Create example data                          | ❌     |
-| 02 | Create a simple pipeline                     | ✅     |
-| 03 | Create additional pipelines                  | ❌     |
-| 04 | Improve data quality                         | ❌     |
-| 05 | Enhance feature validation and deduplication | ❌     |
-| 06 | Support multi-threaded running               | ❌     |
-| 07 | Generate a synthetic dataset for training the model | ❌ |
+| 01 | Improve data quality                         | ❌     |
+| 02 | Enhance feature validation and deduplication | ❌     |
+| 03 | Support multi-threaded running               | ❌     |
+| 04 | Generate a synthetic dataset for training the model | ❌ |
 
 # References
 

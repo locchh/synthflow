@@ -7,7 +7,7 @@ class BasePipeline:
     """
 
     def __init__(self, client: Any, model: str = "gpt-4o", temp_min: float = 0.3, 
-                temp_max: float = 0.8, top_p: float = 0.5, token_length: int = 1024):
+                temp_max: float = 0.7, top_p: float = 0.4, token_length: int = 1024):
         """
         Initializes the Pipeline with the provided parameters.
 
@@ -35,6 +35,295 @@ class BasePipeline:
 #             pass
 #         except Exception as e:
 #             raise RuntimeError(f"An error occurred while processing the content: {e}")
+
+
+class SQLQueryPipeline(BasePipeline):
+
+    def __call__(self,) -> Optional[List[Dict[str, str]]]:
+
+        try:
+            # Generate question
+            messages = [
+                {"role": "system", "content": "You are an expert in SQL query design."},
+                {"role": "user", 
+                "content": (
+                    "Please generate a well-defined SQL query question for any task or functionality that requires retrieving or manipulating data from a database."
+                    "Please respond with the question only, no extra explanations."
+                )}
+            ]
+
+            response = self.client.chat.completions.create(
+                messages=messages,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+
+            question = response.choices[0].message.content
+
+            # Generate query
+            messages = [
+                {"role": "system", "content": "You are an expert in SQL"},
+                {
+                "role": "user",
+                "content": f"{question}\nPlease respond with the SQL query only, without any additional explanations or comments."
+                }
+            ]
+
+            response = self.client.chat.completions.create(
+                messages=messages,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+
+            query = response.choices[0].message.content
+            
+            # Generate instruction data
+            instruct_data = [
+                {"role": "system", "content": "You are a programming expert."},
+                {"role": "user", "content": question},
+                {"role": "assistant", "content": query}
+            ]
+
+            return instruct_data
+
+        except Exception as e:
+            raise RuntimeError(f"An error occurred while processing the content: {e}")
+
+
+class CodeDocumentationPipeline(BasePipeline):
+
+    def __call__(self, language: str) -> Optional[List[Dict[str, str]]]:
+
+        try:
+            # Generate task
+            messages  = [{"role": "system", "content": "You are an expert in multiple programming languages."},
+                        {"role": "user", 
+                        "content": (
+                            f"Generate a concise coding task in {language} that is formatted as a programming exercise."
+                            "The task should be clear, well-structured, and easily understandable. Keep the description short and to the point."
+                            "Please respond with the task only, no extra explanations."
+                            )
+                        }
+            ]
+
+            response = self.client.chat.completions.create(
+                messages=messages,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+
+            task_request = response.choices[0].message.content
+
+            # Generate code
+            messages = [
+                {"role": "system", "content": "You are an expert in multiple programming languages."},
+                {
+                "role": "user",
+                "content": f"{task_request}\nPlease respond with the code only, without any additional explanations or comments."
+                }
+            ]
+
+            response = self.client.chat.completions.create(
+                messages=messages,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+
+            code = response.choices[0].message.content
+
+            # Generate documentation
+            messages = [
+                {"role": "system", "content": "You are an expert in generating clear and comprehensive documentation for code."},
+                {"role": "user", 
+                "content": (
+                    "Please generate detailed documentation for the following code. The documentation should include:\n"
+                    "1. A brief overview of the purpose of the code.\n"
+                    "2. Descriptions of key functions, methods, and classes, including their inputs, outputs, and behavior.\n"
+                    "3. Any important details or assumptions made in the code.\n"
+                    "4. A section on how to use or run the code, if applicable.\n"
+                    "5. Any potential limitations or areas for improvement.\n\n"
+                    f"Here is the code to document:\n\n{code}"
+                )}
+            ]
+
+            response = self.client.chat.completions.create(
+                messages=messages,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+
+            document = response.choices[0].message.content
+
+            # Generate instruction data
+            instruct_data = [
+                {"role": "system", "content": "You are a programming expert."},
+                {"role": "user", "content": f"Please document the following code"},
+                {"role": "user", "content": code},
+                {"role": "assistant", "content": document}
+            ]
+
+            return instruct_data
+
+        except Exception as e:
+            raise RuntimeError(f"An error occurred while processing the content: {e}")
+
+
+class ErrorExplanationPipeline(BasePipeline):
+
+    def __call__(self, language: str) -> Optional[List[Dict[str, str]]]:
+
+        try:
+            # Generate 
+            messages = [
+                {"role": "system", "content": "You are an expert in debugging and explaining programming errors."},
+                {"role": "user", 
+                "content": (
+                    f"Generate a realistic coding error message that might occur in a programming language {language}."
+                    "Please respond with the coding error message only, no extra explanations."
+                )}
+            ]
+
+            response = self.client.chat.completions.create(
+                messages=messages,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+
+            error = response.choices[0].message.content
+
+            # Generate explain
+            messages = [
+                {"role": "system", "content": "You are an expert in debugging and providing detailed explanations for programming errors."},
+                {"role": "user", 
+                "content": (
+                    f"Please review the following error message generated in the {language} programming language:\n\n{error}\n\n"
+                    "Provide a comprehensive explanation of the cause of this error and recommend steps to resolve or debug it. "
+                    "Ensure your explanation is clear, concise, and suitable for someone looking to understand and fix the issue."
+                )}
+            ]
+
+            response = self.client.chat.completions.create(
+                messages=messages,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+
+            explain = response.choices[0].message.content
+
+            # Generate instruction data
+            instruct_data = [
+                {"role": "system", "content": "You are a programming expert."},
+                {"role": "user", 
+                "content": (
+                    f"Please review the following error message generated in the {language} programming language:\n\n{error}\n\n"
+                )},
+                {"role": "assistant", "content": explain}
+            ]
+
+            return instruct_data
+
+        except Exception as e:
+            raise RuntimeError(f"An error occurred while processing the content: {e}")
+
+
+class CodeReviewPipeline(BasePipeline):
+
+    def __call__(self, language: str) -> Optional[List[Dict[str, str]]]:
+
+        try:
+            # Generate task
+            messages  = [{"role": "system", "content": "You are an expert in multiple programming languages."},
+                        {"role": "user", 
+                        "content": (
+                            f"Generate a concise coding task in {language} that is formatted as a programming exercise."
+                            "The task should be clear, well-structured, and easily understandable. Keep the description short and to the point."
+                            "Please respond with the task only, no extra explanations."
+                            )
+                        }
+            ]
+
+            response = self.client.chat.completions.create(
+                messages=messages,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+
+            task_request = response.choices[0].message.content
+
+            # Generate code
+            messages = [
+                {"role": "system", "content": "You are an expert in multiple programming languages."},
+                {
+                "role": "user",
+                "content": f"{task_request}\nPlease respond with the code only, without any additional explanations or comments."
+                }
+            ]
+
+            response = self.client.chat.completions.create(
+                messages=messages,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+
+            code = response.choices[0].message.content
+
+            # Review code
+            messages = [
+                        {"role": "system", "content": "You are an expert code reviewer skilled in multiple programming languages."},
+                        {"role": "user", 
+                        "content": (
+                            "Please review the following code thoroughly and provide detailed feedback. Focus on the following aspects:\n"
+                            "1. **Readability and Style**: Is the code well-structured, commented, and easy to read? Are variable and function names descriptive?\n"
+                            "2. **Functionality**: Does the code perform as intended? Identify any potential issues, bugs, or edge cases that may not be handled.\n"
+                            "3. **Efficiency**: Could the code be optimized for better performance? Highlight any redundant or inefficient sections.\n"
+                            "4. **Best Practices**: Does the code adhere to best practices for the language or framework? Are there opportunities to improve maintainability or scalability?\n"
+                            "5. **Security**: Point out any potential security vulnerabilities and suggest mitigations.\n"
+                            "6. **Suggestions for Improvement**: Provide actionable recommendations to improve the overall quality of the code.\n\n"
+                            f"Here is the code to review:\n\n{code}"
+                            )
+                        }
+                        ]
+
+            response = self.client.chat.completions.create(
+                messages=messages,
+                model=self.model,
+                temperature=random.uniform(self.temp_min, self.temp_max),
+                max_tokens=self.token_length,
+                top_p=self.top_p
+            )
+
+            review = response.choices[0].message.content
+
+            # Generate instruction data
+            instruct_data = [
+                {"role": "system", "content": "You are a programming expert."},
+                {"role": "user", "content": f"Review the following {language} code and provide feedback:"},
+                {"role": "user", "content": code},
+                {"role": "assistant", "content": review}
+            ]
+
+            return instruct_data
+
+        except Exception as e:
+            raise RuntimeError(f"An error occurred while processing the content: {e}")
 
 
 class CodeOptimizationPipeline(BasePipeline):
