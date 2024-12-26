@@ -52,6 +52,8 @@ A tool for generating synthetic data.
 
 # References
 
+[gitingest](https://github.com/cyclotruc/gitingest)
+
 [h2o-wizardlm](https://github.com/h2oai/h2o-wizardlm?tab=readme-ov-file)
 
 [self-instruct](https://github.com/yizhongw/self-instruct)
