@@ -45,10 +45,9 @@ A tool for generating synthetic data.
 # TODOs
 | No | Task                                         | Status |
 |----|----------------------------------------------|--------|
-| 01 | Improve data quality                         | ❌     |
-| 02 | Enhance feature validation and deduplication | ❌     |
-| 03 | Support multi-threaded running               | ❌     |
-| 04 | Generate a synthetic dataset for training the model | ❌ |
+| 01 | Improve data quality (self-instruct, evol-instruct, validator, eliminator,.)  | 🛠️     |
+| 02 | Support multi-threaded running               | ❌     |
+| 03 | Generate a synthetic dataset for training the model | ❌ |
 
 # References
 
