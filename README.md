@@ -54,7 +54,7 @@ A tool for generating synthetic data.
 
 [h2o-wizardlm](https://github.com/h2oai/h2o-wizardlm?tab=readme-ov-file)
 
-[llm-swarm](https://github.com/huggingface/llm-swarm)
+[self-instruct](https://github.com/yizhongw/self-instruct)
 
 [openai](https://platform.openai.com/docs/overview)
 
@@ -66,4 +66,4 @@ A tool for generating synthetic data.
 
 [WizardLM: Empowering Large Language Models to Follow Complex Instructions](https://arxiv.org/abs/2304.12244)
 
-[Model Swarms: Collaborative Search to Adapt LLM Experts via Swarm Intelligence](https://arxiv.org/abs/2410.11163)
+[Self-Instruct: Aligning Language Models with Self-Generated Instructions](https://arxiv.org/abs/2212.10560)
