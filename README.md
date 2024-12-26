@@ -2,6 +2,10 @@
 
 A tool for generating synthetic data.
 
+<div align="center">
+  <img src="assets/imgs/synthflow.svg">
+</div>
+
 # Pipelines
 
 - Basic
