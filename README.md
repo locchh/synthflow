@@ -29,23 +29,24 @@ A tool for generating synthetic data.
 
 |No|Pipeline|none|txt|pdf|Comment|
 |---|---|---|---|---|---|
-|01|[Code Explanation](docs/coding_instruction_data.md#1-code-explanation)|[✅](pipelines/Coding.py#L685)|❌|❌||
-|02|[Code Debugging](docs/coding_instruction_data.md#2-code-debugging)|[✅](pipelines/Coding.py#L626)|❌|❌||
-|03|[Code Generation](docs/coding_instruction_data.md#3-code-generation)|[✅](pipelines/Coding.py#L570)|❌|❌||
-|04|[Code Completion](docs/coding_instruction_data.md#4-code-completion)|[✅](pipelines/Coding.py#L486)|❌|❌||
-|05|[Code Translation](docs/coding_instruction_data.md#5-code-translation)|[✅](pipelines/Coding.py#L410)|❌|❌||
-|06|[Optimization Suggestions](docs/coding_instruction_data.md#6-optimization-suggestions)|[✅](pipelines/Coding.py#L329)|❌|❌||
-|07|[Code Review](docs/coding_instruction_data.md#7-code-review)|[✅](pipelines/Coding.py#L243)|❌|❌||
-|08|[Error Explanation](docs/coding_instruction_data.md#8-error-explanation)|[✅](pipelines/Coding.py#L181)|❌|❌||
-|09|[Code Documentation](docs/coding_instruction_data.md#9-code-documentation)|[✅](pipelines/Coding.py#L97)|❌|❌||
-|10|[SQL Query Assistance](docs/coding_instruction_data.md#10-sql-query-assistance)|[✅](pipelines/Coding.py#L40)|❌|❌||
+|01|[SQL Query Assistance](docs/coding_instruction_data.md#10-sql-query-assistance)|[✅](pipelines/Coding.py#L40)|❌|❌|*Requirement*|
+|02|[Code Generation](docs/coding_instruction_data.md#3-code-generation)|[✅](pipelines/Coding.py#L570)|❌|❌|*Requirement*|
+|03|[Code Completion](docs/coding_instruction_data.md#4-code-completion)|[✅](pipelines/Coding.py#L486)|❌|❌|*Requirements + Incomplete Code*|
+|04|[Code Debugging](docs/coding_instruction_data.md#2-code-debugging)|[✅](pipelines/Coding.py#L626)|❌|❌|*Requirements + Buggy Code*|
+|07|[Error Explanation](docs/coding_instruction_data.md#8-error-explanation)|[✅](pipelines/Coding.py#L181)|❌|❌|*Requirements + Buggy Code + Error Message*|
+|05|[Code Explanation](docs/coding_instruction_data.md#1-code-explanation)|[✅](pipelines/Coding.py#L685)|❌|❌|*Requirements + Completed Code*|
+|06|[Code Review](docs/coding_instruction_data.md#7-code-review)|[✅](pipelines/Coding.py#L243)|❌|❌|*Requirements + Completed Code*|
+|08|[Code Documentation](docs/coding_instruction_data.md#9-code-documentation)|[✅](pipelines/Coding.py#L97)|❌|❌|*Requirements + Completed Code*|
+|09|[Code Optimization](docs/coding_instruction_data.md#6-optimization-suggestions)|[✅](pipelines/Coding.py#L329)|❌|❌|*Requirements+Completed Code*|
+|10|[Code Translation](docs/coding_instruction_data.md#5-code-translation)|[✅](pipelines/Coding.py#L410)|❌|❌|*Requirements + Completed Code*|
+
 
 - Other
 
 # TODOs
 | No | Task                                         | Status |
 |----|----------------------------------------------|--------|
-| 01 | Improve data quality (self-instruct, evol-instruct, validator, eliminator,.)  | 🛠️     |
+| 01 | Improve data quality (self-instruct, evol-instruct, validator, eliminator,...)  | 🛠️     |
 | 02 | Support multi-threaded running               | ❌     |
 | 03 | Generate a synthetic dataset for training the model | ❌ |
 
