@@ -41,7 +41,7 @@ A tool for generating synthetic data.
 |05|[Code Explanation](docs/coding_instruction_data.md#1-code-explanation)|[✅](pipelines/Coding.py#L685)|❌|❌|*Requirement + Completed Code*|
 |06|[Code Review](docs/coding_instruction_data.md#7-code-review)|[✅](pipelines/Coding.py#L243)|❌|❌|*Requirement + Completed Code*|
 |08|[Code Documentation](docs/coding_instruction_data.md#9-code-documentation)|[✅](pipelines/Coding.py#L97)|❌|❌|*Requirement + Completed Code*|
-|09|[Code Optimization](docs/coding_instruction_data.md#6-optimization-suggestions)|[✅](pipelines/Coding.py#L329)|❌|❌|*Requirement+Completed Code*|
+|09|[Code Optimization](docs/coding_instruction_data.md#6-optimization-suggestions)|[✅](pipelines/Coding.py#L329)|❌|❌|*Requirement + Completed Code*|
 |10|[Code Translation](docs/coding_instruction_data.md#5-code-translation)|[✅](pipelines/Coding.py#L410)|❌|❌|*Requirement + Completed Code*|
 
 
@@ -71,6 +71,8 @@ A tool for generating synthetic data.
 [docling](https://github.com/DS4SD/docling)
 
 [docling.io](https://ds4sd.github.io/docling/#ibm-open-source-ai)
+
+[grammarinator](https://github.com/renatahodovan/grammarinator)
 
 [WizardLM: Empowering Large Language Models to Follow Complex Instructions](https://arxiv.org/abs/2304.12244)
 
