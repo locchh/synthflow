@@ -3,9 +3,11 @@
 
 # References
 
-[self-instruct](https://github.com/yizhongw/self-instruct)
+[synthetic-data-kit](https://github.com/meta-llama/synthetic-data-kit)
 
-[grammarinator](https://github.com/renatahodovan/grammarinator)
+[distilabel](https://github.com/argilla-io/distilabel)
+
+[self-instruct](https://github.com/yizhongw/self-instruct)
 
 [WizardLM: Empowering Large Language Models to Follow Complex Instructions](https://arxiv.org/abs/2304.12244)
 
