@@ -1,76 +1,9 @@
 # SynthFlow🍃
 
-A tool for generating synthetic data.
-
-<div align="center">
-  <img src="assets/imgs/synthflow.svg">
-</div>
-
-# Pipelines
-
-- Basic
-
-|No|Pipeline|none|txt|pdf|Comment|
-|---|---|---|---|---|---|
-|01|Simple Q&A|❌|[✅](pipelines/Basic.py#L4)|❌|*Based on what type of document?*|
-
-- For Learning
-
-|No|Pipeline|none|txt|pdf|Comment|
-|---|---|---|---|---|---|
-|01|[Definitions and Terminology](docs/mainframe_learning_instruction_data.md#1-definitions-and-terminology)|❌|[✅](pipelines/Learning.py#L572)|❌||
-|02|[Troubleshooting](docs/mainframe_learning_instruction_data.md#2-troubleshooting)|❌|[✅](pipelines/Learning.py#L513)|❌||
-|03|[Command References](docs/mainframe_learning_instruction_data.md#3-command-references)|❌|[✅](pipelines/Learning.py#L454)|❌||
-|04|[System Operations](docs/mainframe_learning_instruction_data.md#4-system-operations)|❌|[✅](pipelines/Learning.py#L395)|❌||
-|05|[Programming on Mainframes](docs/mainframe_learning_instruction_data.md#5-programming-on-mainframes)|❌|[✅](pipelines/Learning.py#L336)|❌||
-|06|[System Configuration](docs/mainframe_learning_instruction_data.md#6-system-configuration)|❌|[✅](pipelines/Learning.py#L276)|❌||
-|07|[Migration and Modernization](docs/mainframe_learning_instruction_data.md#7-migration-and-modernization)|❌|[✅](pipelines/Learning.py#L217)|❌||
-|08|[Performance Optimization](docs/mainframe_learning_instruction_data.md#8-performance-optimization)|❌|[✅](pipelines/Learning.py#L158)|❌||
-|09|[Integration](docs/mainframe_learning_instruction_data.md#9-integration)|❌|[✅](pipelines/Learning.py#L99)|❌||
-|10|[Error Analysis](docs/mainframe_learning_instruction_data.md#10-error-analysis)|❌|[✅](pipelines/Learning.py#L40)|❌||
-
-- For Coding
-
-|No|Pipeline|none|txt|pdf|Comment|
-|---|---|---|---|---|---|
-|01|[SQL Query Assistance](docs/coding_instruction_data.md#10-sql-query-assistance)|[✅](pipelines/Coding.py#L40)|❌|❌|*Requirement*|
-|02|[Code Generation](docs/coding_instruction_data.md#3-code-generation)|[✅](pipelines/Coding.py#L570)|❌|❌|*Requirement*|
-|03|[Code Completion](docs/coding_instruction_data.md#4-code-completion)|[✅](pipelines/Coding.py#L486)|❌|❌|*Requirement + Incomplete Code*|
-|04|[Code Debugging](docs/coding_instruction_data.md#2-code-debugging)|[✅](pipelines/Coding.py#L626)|❌|❌|*Requirement + Buggy Code*|
-|07|[Error Explanation](docs/coding_instruction_data.md#8-error-explanation)|[✅](pipelines/Coding.py#L181)|❌|❌|*Requirement + Buggy Code + Error Message*|
-|05|[Code Explanation](docs/coding_instruction_data.md#1-code-explanation)|[✅](pipelines/Coding.py#L685)|❌|❌|*Requirement + Completed Code*|
-|06|[Code Review](docs/coding_instruction_data.md#7-code-review)|[✅](pipelines/Coding.py#L243)|❌|❌|*Requirement + Completed Code*|
-|08|[Code Documentation](docs/coding_instruction_data.md#9-code-documentation)|[✅](pipelines/Coding.py#L97)|❌|❌|*Requirement + Completed Code*|
-|09|[Code Optimization](docs/coding_instruction_data.md#6-optimization-suggestions)|[✅](pipelines/Coding.py#L329)|❌|❌|*Requirement + Completed Code*|
-|10|[Code Translation](docs/coding_instruction_data.md#5-code-translation)|[✅](pipelines/Coding.py#L410)|❌|❌|*Requirement + Completed Code*|
-
-
-- Other
-
-# TODOs
-| No | Task                                         | Status |
-|----|----------------------------------------------|--------|
-| 01 | Improve data quality (self-instruct, evol-instruct, validator, eliminator,...)  | 🛠️     |
-| 02 | Support local host model                     | ❌     |
-| 03 | Support multi-threaded running               | ❌     |
-| 04 | Generate a synthetic dataset for training the model | ❌ |
-| 05 | Public package and release paper               | ❌     |
 
 # References
 
-[gitingest](https://github.com/cyclotruc/gitingest)
-
-[h2o-wizardlm](https://github.com/h2oai/h2o-wizardlm?tab=readme-ov-file)
-
 [self-instruct](https://github.com/yizhongw/self-instruct)
-
-[openai](https://platform.openai.com/docs/overview)
-
-[openai-python](https://github.com/locchh/openai-python)
-
-[docling](https://github.com/DS4SD/docling)
-
-[docling.io](https://ds4sd.github.io/docling/#ibm-open-source-ai)
 
 [grammarinator](https://github.com/renatahodovan/grammarinator)
 

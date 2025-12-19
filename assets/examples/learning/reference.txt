@@ -1,5 +1,0 @@
-When managing a z/OS system, system administrators often need to monitor the active jobs running on the mainframe.
-This is essential for tracking system performance, resource usage, and troubleshooting potential issues.
-To list all currently active jobs, the z/OS command DISPLAY ACTIVE is used.
-This command displays a list of all jobs that are actively running on the system,
-allowing administrators to quickly assess the system's job workload.

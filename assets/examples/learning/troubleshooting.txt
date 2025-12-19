@@ -1,9 +1,0 @@
-When troubleshooting high CPU usage on an IBM z/OS mainframe system,
-it’s important to follow a structured approach to identify the root cause.
-First, using the **Resource Measurement Facility (RMF)** tool is crucial 
-to monitor CPU utilization and gather detailed performance data.
-By reviewing RMF reports, you can pinpoint which processes are consuming excessive CPU resources.
-Next, check for any **long-running or looping jobs** that may be hogging the CPU.
-Terminating or adjusting these processes can often help alleviate the issue.
-Additionally, reviewing **Workload Manager (WLM)** policies ensures that system resources are being allocated efficiently.
-Finally, a thorough analysis of **system logs** is necessary to detect any errors, failures, or unusual activity that may contribute to high CPU usage.

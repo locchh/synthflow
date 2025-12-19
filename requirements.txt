@@ -1,4 +1,0 @@
-openai==1.55.2
-docling==2.4.2
-PyPDF2==3.0.1
-tiktoken==0.8.0

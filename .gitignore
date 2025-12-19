@@ -1,9 +1,0 @@
-__pycache__
-.vscode
-.ipynb_checkpoints
-
-*.tar
-*.rar
-*.zip
-
-*.log
